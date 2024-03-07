@@ -1,6 +1,7 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/WelcomeItem.vue";
+import Detail from "./screen/DetailEachPage.vue";
 </script>
 
 <template>
@@ -19,7 +20,7 @@ import TheWelcome from "./components/WelcomeItem.vue";
   </header> -->
 
   <main>
-    <TheWelcome />
+    <Detail />
   </main>
 </template>
 
