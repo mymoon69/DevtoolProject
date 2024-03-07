@@ -20,7 +20,7 @@ import Detail from "./screen/DetailEachPage.vue";
   </header> -->
 
   <main>
-    <Detail />
+    <TheWelcome />
   </main>
 </template>
 
