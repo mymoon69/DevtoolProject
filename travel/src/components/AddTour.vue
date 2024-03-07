@@ -1,12 +1,12 @@
 <template>
     <div id="app">
       <!--room and calendar-->
-      <div class=" my-5">
+      <div class=" m-2">
         <div class="my-4">
           <!--calendar-->
           <div class="flex flex-row items-center justify-center">
             <div
-              class="calendar flex flex-col justify-between bg-[#C1CB9C] rounded-3xl w-4/5"
+              class="calendar flex flex-col justify-between bg-[#C1CB9C] rounded-3xl w-full"
               id="calendar"
             >
               <div
@@ -49,11 +49,7 @@
             </div>
           </div>
           <!--event-->
-          <div class="flex">
-            <div class="today-date text-center">
-              <div class="event-day quotes title"></div>
-              <div class="event-date headertext subtitle font-medium"></div>
-            </div>
+          <div class="">
             <div
               v-for="ev in eventmovies"
               class="events flex flex-col"
@@ -66,15 +62,57 @@
               </li>
               </ul>
             </div>
-            <div class="add-event" style="bottom: 0">
-              <button
-                class="button is-warning js-modal-trigger"
-                data-target="modal-js-example"
-                @click="putmodal('open')"
-              >
-                +
-              </button>
-            </div>
+          </div>
+
+          <div class="py-2 text-left">
+            <h5>Start-Date</h5>
+            <input
+              type="text"
+              class="border-2 border-gray-100 focus:outline-none bg-none block w-full py-2 px-4 rounded-lg focus:border-gray-700"
+              placeholder="Start Date"
+              :value=startdate
+            />
+          </div>
+          <div class="py-2 text-left">
+            <h5>End-Date</h5>
+            <input
+              type="text"
+              class="border-2 border-gray-100 focus:outline-none bg-none block w-full py-2 px-4 rounded-lg focus:border-gray-700"
+              placeholder="End Date"
+              :value=startdate
+            />
+          </div>
+          <div class="py-2 text-left">
+            <h5>What's the tour about</h5>
+            <input
+              type="text"
+              class="border-2 border-gray-100 focus:outline-none bg-none block w-full py-2 px-4 rounded-lg focus:border-gray-700"
+              placeholder="About tour"
+            />
+          </div>
+          <div class="py-2 text-left">
+            <h5>Location</h5>
+            <input
+              type="text"
+              class="border-2 border-gray-100 focus:outline-none bg-none block w-full py-2 px-4 rounded-lg focus:border-gray-700"
+              placeholder="Location"
+            />
+          </div>
+          <div class="py-2 text-left">
+            <h5>Remark</h5>
+            <textarea
+              type="text"
+              class="border-2 border-gray-100 focus:outline-none bg-none block w-full py-2 px-4 rounded-lg focus:border-gray-700"
+              placeholder="Have to renew the passport before."
+            ></textarea>
+          </div>
+          <div class="py-6 text-white">
+            <button
+              type="submit"
+              class="bg-[#C1CB9C] tracking-wider block w-full p-2 rounded-lg focus:border-gray-700"
+            >
+              Save
+            </button>
           </div>
         </div>
       </div>
@@ -96,7 +134,8 @@
         end_time: "",
         eventmovies: [],
         ansdate: "",
-        user: null
+        user: null,
+        startdate: ""
       };
     },
     created() {
@@ -172,7 +211,7 @@
         for (let i = 1; i <= lastdate; i++) {
           if (count % 7 == 0) {
             let row = document.createElement("tr");
-            row.classList.add("days", "has-text-centered");
+            row.classList.add("days", "text-center");
             console.log(row);
             row.innerHTML = days;
             console.log(row);
@@ -189,13 +228,13 @@
             this.getactiveday(i);
   
             // if event found on today
-            days += `<td class="day today active">${i}</td>`;
+            days += `<td class="day today active rounded-full bg-[#E5E6E1]">${i}</td>`;
           }
           // if event found on other day
           else {
             if (this.findday == 1 && i == today) {
               this.getactiveday(i);
-              days += `<td class="day finding">${i}</td>`;
+              days += `<td class="day finding bg-[#E5E6E1] rounded-full">${i}</td>`;
               this.findday = 0;
             } else {
               days += `<td class="day">${i}</td>`;
@@ -257,8 +296,6 @@
         this.getactiveday(days);
       },
       getactiveday(date) {
-        let eventday = document.getElementsByClassName("event-day")[0];
-        let eventdate = document.getElementsByClassName("event-date")[0];
         const day = new Date(this.year, this.month, date);
         const dayname = day.toString().split(" ")[0];
         const months = [
@@ -275,8 +312,7 @@
           "November",
           "December",
         ];
-        eventday.innerText = dayname;
-        eventdate.innerText = date + " " + months[this.month] + " " + this.year;
+        this.startdate=dayname + " "+ date + " " + months[this.month] + " " + this.year;
   
         let ans = "";
         if (date < 10 && this.month + 1 < 10) {
@@ -342,7 +378,6 @@
   .calendar {
     position: relative;
     height: 100%;
-    color: #878895;
   }
   
   .calendar .month {
@@ -382,7 +417,7 @@
   
   .calendar .days .prev-date,
   .calendar .days .next-date {
-    color: #878895;
+    color: #7f7f7f;
   }
   
   #calendar .days .active {
@@ -396,12 +431,6 @@
   .calendar .days .today {
     font-size: 1.5rem;
     color: #fff;
-    background-color: #3f3027;
-  }
-  
-  .calendar .days .finding {
-    color: #fff;
-    background-color: #e17c3d;
   }
   
   .calendar .days .event {
