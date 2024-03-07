@@ -5,8 +5,14 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    colors: {
+      'darkgreen': '#3A4646',
+      'lightgreen': '#C1CB9C',
+    },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio')
+  ],
 }
 
