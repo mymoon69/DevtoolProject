@@ -1,7 +1,7 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/WelcomeItem.vue";
-import Detail from "./screen/DetailEachPage.vue";
+import Detail from "./screen/AllTourCalendar.vue";
 </script>
 
 <template>
@@ -20,7 +20,7 @@ import Detail from "./screen/DetailEachPage.vue";
   </header> -->
 
   <main>
-    <TheWelcome />
+    <Detail />
   </main>
 </template>
 
