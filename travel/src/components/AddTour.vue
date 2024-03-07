@@ -109,7 +109,7 @@
           <div class="py-6 text-white">
             <button
               type="submit"
-              class="bg-[#C1CB9C] tracking-wider block w-full p-2 rounded-lg focus:border-gray-700"
+              class="bg-[#3A4646] text-white tracking-wider block w-full p-2 rounded-lg focus:border-gray-700"
             >
               Save
             </button>
