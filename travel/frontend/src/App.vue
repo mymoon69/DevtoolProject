@@ -2,7 +2,9 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/WelcomeItem.vue";
 import CommentPage from "../src/screen/CommentPage.vue";
-import AllTourCalendar from "../src/screen/AllTourCalendar.vue"
+import AllTourCalendar from "../src/screen/AllTourCalendar.vue";
+import Search from "../src/screen/SearchPage.vue";
+
 </script>
 
 <template>
@@ -21,7 +23,7 @@ import AllTourCalendar from "../src/screen/AllTourCalendar.vue"
   </header> -->
 
   <main>
-    <AllTourCalendar />
+    <Search />
   </main>
 </template>
 
