@@ -76,7 +76,12 @@
             </div>
           </div>
 
-          <DetailCard />
+          <DetailCard 
+          startdate="Thu 23"
+          enddate="Fri 24"
+          location="Home"
+          country="Thailands"
+          />
         </div>
       </div>
     </section>
@@ -333,9 +338,7 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: #c1cb9c;
-}
+
 .textsmall {
   font-family: "Roboto", sans-serif;
 }
