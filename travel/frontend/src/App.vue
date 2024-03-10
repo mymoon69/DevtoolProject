@@ -4,6 +4,7 @@ import TheWelcome from "./components/WelcomeItem.vue";
 import CommentPage from "../src/screen/CommentPage.vue";
 import AllTourCalendar from "../src/screen/AllTourCalendar.vue"
 import listYourTrips from "../src/screen/listYourTrips.vue";
+import listConfirm from "../src/screen/listConfirm.vue";
 </script>
 
 <template>
@@ -22,7 +23,7 @@ import listYourTrips from "../src/screen/listYourTrips.vue";
   </header> -->
 
   <main>
-    <listYourTrips />
+    <listConfirm />
   </main>
 </template>
 
