@@ -53,6 +53,7 @@ import HeaderWeb from "../components/HeaderWeb.vue";
                 class="w-[180px] h-[119px] bg-cover rounded-[13px] flex items-center justify-center"
                 src="https://lh5.googleusercontent.com/C4h2qu1XS3gOPemUOgMeMklYiY-qEM5XbuSRX3xdB2Q8bzd6f1Klo98jyNiK1xi2JqPriCPAccFD8IQA7Xu7geofusYyrs9o0AK0YniqPIaJmWtDGXuN1Yup4NJ1L-Ut5AR_Fxh_AkdddlCVo3fPmgANuqonqz3P14VBFCCuidrROALn8tvZvfTDZ3UsGT6L8cAJoOhrCQ"
               />
+              
             </div>
 
             <div class="px-2 py-2">

@@ -1,9 +1,15 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
 
-import registerView from '../components/RegisterView.vue'
-import loginView from '../components/LoginView.vue'
+import registerView from '@/screen/RegisterView.vue'
+import loginView from '@/screen/LoginView.vue'
 import CommentPage from '@/screen/CommentPage.vue'
+import listConfirm from '@/screen/listConfirm.vue'
+import listYourTrips from '@/screen/listYourTrips.vue'
+import SearchPage from '@/screen/SearchPage.vue'
+import DetailtourCard from '@/components/DetailtourCard.vue'
+import AllTourCalendar from '@/screen/AllTourCalendar.vue'
+import DetailEachPage from '@/screen/DetailEachPage.vue'
 // import Home from '@/components/Home.vue'
 
 const router = createRouter({
@@ -21,6 +27,33 @@ const router = createRouter({
             path : '/comment',
             component : CommentPage
         },
+
+        {
+            path : '/listConfirm',
+            component : listConfirm
+        },
+        {
+            path : "/listYourTrips",
+            component : listYourTrips
+        },
+        {
+            path : "/",
+            component : SearchPage
+            
+        },
+        {
+            path : "/DetailtourCard",
+            component : DetailtourCard
+        },
+        {
+            path : "/AllTourCalendar",
+            component : AllTourCalendar
+        },
+        {
+            path : "/DetailEachPagearch",
+            component : DetailEachPage
+        },
+       
         // {
         //     path : '/home',
         //     component : Home
