@@ -20,9 +20,11 @@ import AllTourCalendar from "../src/screen/AllTourCalendar.vue"
     </div>
   </header> -->
 
-  <main>
-    <AllTourCalendar />
-  </main>
+  <!-- <main>
+    <CommentPage />
+  </main> -->
+
+  <router-view />
 </template>
 
 <style scoped>
