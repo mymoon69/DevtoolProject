@@ -36,7 +36,5 @@
 <script></script>
 
 <style>
-body {
-    background-color: #C1CB9C;
-}
+
 </style>

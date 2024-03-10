@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <section class="text-center justify-center items-center bg-white py-5">
-        <h5>Good Morning</h5>
-        <h2>John Doe</h2>
-        <div class="flex text-center justify-center">
-          <h3 class="bg-[#C1CB9C] rounded-full px-3">2024</h3>
-        </div>
-        <div class="flex text-center justify-center">
-          <h3 class="bg-[#C1CB9C] rounded-full px-3">March</h3>
-        </div>
+      <h5>Good Morning</h5>
+      <h2>John Doe</h2>
+      <div class="flex text-center justify-center">
+        <h3 class="bg-[#C1CB9C] rounded-full px-3 my-3">2024</h3>
+      </div>
+      <div class="flex text-center justify-center">
+        <h3 class="bg-[#C1CB9C] rounded-full px-3">March</h3>
+      </div>
     </section>
     <section>
-      <div class="m-2">
+      <div>
         <div class="my-4 rounded-lg">
           <!--calendar-->
-          <div class="items-center justify-center bg-[#C1CB9C]">
+          <div class="items-center justify-center bg-[#C1CB9C] rounded-lg">
             <div
               class="calendar flex flex-col justify-between bg-[#C1CB9C] rounded-3xl w-full"
               id="calendar"
@@ -75,13 +75,16 @@
               </ul>
             </div>
           </div>
-
-          <DetailCard 
-          startdate="Thu 23"
-          enddate="Fri 24"
-          location="Home"
-          country="Thailands"
-          />
+          <div class="p-3">
+            <DetailCard
+            v-for="(place, index) in places"
+            :key="place.id"
+              startdate=place.StartDate
+              enddate=place.EndDate
+              location="Home"
+              country="Thailands"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -94,7 +97,7 @@ import DetailCard from "../components/DetailtourCard.vue";
 export default {
   data() {
     return {
-      datamov: [],
+      places: [],
       today: "",
       month: 0,
       year: 0,
@@ -107,13 +110,14 @@ export default {
       ansdate: "",
       user: null,
       startdate: "",
+      selecttour: {}
     };
   },
   created() {
     (this.today = new Date()),
       (this.month = new Date().getMonth()),
       (this.year = new Date().getFullYear()),
-      this.getEvents();
+      this.fetchplace();
   },
   mounted() {
     this.gototoday();
@@ -311,34 +315,22 @@ export default {
         modal.classList.remove("is-active");
       }
     },
-    addEvents() {
-      /* axios
-          .post("/add/event/movie", {
-            events: this.events,
-            dates: this.dates,
-            start_time: this.start_time,
-            end_time: this.end_time,
-            user_id: this.user.user_id
-          })
-          .then((res) => this.$router.push({ name: "moviepage" }))
-          .catch((e) => console.log(e.response)); */
-    },
-    getEvents(dates) {
-      /* axios
-          .get(`/eventsmovie`)
-          .then((response) => {
-            this.eventmovies = response.data;
-          })
-          .catch((err) => {
-            console.log(err);
-          }); */
-    },
+    async fetchplace() {
+        console.log("place")
+      try {
+        
+        const response =  await axios.get('http://localhost:4000/places');
+        this.places = response.data; // Store the retrieved comments data in the 'comments' array
+        this.countplace = this.places.length
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      }
+    }
   },
 };
 </script>
 
 <style>
-
 .textsmall {
   font-family: "Roboto", sans-serif;
 }

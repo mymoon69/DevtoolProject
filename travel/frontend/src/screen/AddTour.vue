@@ -111,8 +111,7 @@
             type="text"
             class="border-2 border-gray-100 focus:outline-none bg-none block w-full py-2 px-4 rounded-lg focus:border-gray-700"
           >
-            <option disabled value="">Please select one</option>
-            <option v-for="place in places" v-bind:value="place.id"></option>
+            <option v-for="(place, index) in places" :key="place.id" :value="index">{{ place.description }}</option>
           </select>
         </div>
         <div></div>
@@ -166,12 +165,14 @@ export default {
       startdate: "",
       date1: "",
       date2: "",
+      selecttour: {}
     };
   },
   created() {
     (this.today = new Date()),
       (this.month = new Date().getMonth()),
       (this.year = new Date().getFullYear());
+      this.fetchplace();
   },
   mounted() {
     this.gototoday();
@@ -361,7 +362,7 @@ export default {
       const data = {
         StartDate: this.date1,
         EndDate: this.date2,
-        Tour: "bla bla"
+        Tour: this.places[this.selecttour]
       };
       axios
         .post("http://localhost:4000/addtour", data)
@@ -370,6 +371,7 @@ export default {
 
           this.StartDate = "";
           this.EndDate = "";
+          this.selecttour={};
           console.log(this.responseData);
         })
         .catch((error) => {
@@ -381,9 +383,8 @@ export default {
       try {
         
         const response =  await axios.get('http://localhost:4000/places');
-        this.place = response.data; // Store the retrieved comments data in the 'comments' array
-        console.log(this.place)
-        this.countplace = this.place.length
+        this.places = response.data; // Store the retrieved comments data in the 'comments' array
+        this.countplace = this.places.length
       } catch (error) {
         console.error('Error fetching comments:', error);
       }
