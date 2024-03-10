@@ -73,7 +73,7 @@
           <h1
             class="text-lg font-bold text-gray-700  md:text-xl"
           >
-            $220 or 2 days 1 night
+            $220
           </h1>
           <!-- <button
             class="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
