@@ -16,7 +16,7 @@
         <h4 class="justify-center text-white">Jan 24 - Jan 27</h4>
         <h4 class="justify-center text-white">Mardi Himal Hiking</h4>
         <div>
-          <i class="fa fa-calendar text-white"></i>
+          <i class="fa-solid fa-location-dot text-white"></i>
           <label class="date text-white">  Nepal</label>
         </div>
         <h4 class="justify-center text-white">Have to renew the passport before</h4>

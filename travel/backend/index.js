@@ -19,8 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true}))
 console.log(admin)
 const indexRouter = require("./routes/index")
 const commentRouter = require("./routes/comment")
+const addtourRouter = require("./routes/addtour")
 
 app.use(indexRouter.router)
 app.use(commentRouter.router)
+app.use(addtourRouter.router)
 
 app.listen(4000, () => console.log("Up & RUnning *4000"));
