@@ -324,6 +324,7 @@ export default {
       let days = valdate[2] * 1;
       this.getallday();
       this.getactiveday(days);
+      
     },
     getactiveday(date) {
       const day = new Date(this.year, this.month, date);

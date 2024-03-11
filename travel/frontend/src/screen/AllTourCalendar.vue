@@ -2,12 +2,11 @@
   <div id="app">
     <section class="text-center justify-center items-center bg-white py-5">
       <h5>Good Morning</h5>
-      <h2>John Doe</h2>
       <div class="flex text-center justify-center">
-        <h3 class="bg-[#C1CB9C] rounded-full px-3 my-3">2024</h3>
+        <h3 class="bg-[#C1CB9C] rounded-full px-3 my-3">{{ this.year }}</h3>
       </div>
       <div class="flex text-center justify-center">
-        <h3 class="bg-[#C1CB9C] rounded-full px-3">March</h3>
+        <h3 class="bg-[#C1CB9C] rounded-full px-3">{{ this.textmonth[this.month] }}</h3>
       </div>
     </section>
     <section>
@@ -112,7 +111,19 @@ export default {
       ansdate: "",
       user: null,
       startdate: "",
-      selecttour: {}
+      selecttour: {},
+      textmonth: ["January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"]
     };
   },
   created() {

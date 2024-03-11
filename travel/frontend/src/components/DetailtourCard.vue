@@ -7,13 +7,14 @@
       />
     </div>
     <div class="basis-1/2 justify-center pl-3">
-      <div class="border border-[#C1CB9C] rounded-full p-2">
-        <h4 class="justify-center text-white text-xs">{{ startdate }} - {{ enddate }}</h4>
+      <div class="border border-[#C1CB9C] rounded-full p-1 text-center">
+        <h4 class="justify-center text-white text-xs">Start : {{ startdate }}</h4>
+        <h4 class="justify-center text-white text-xs">End : {{ enddate }}</h4>
       </div>
-      <div>
-        <h4 class="justify-center text-white">{{ nametrip }}</h4>
+      <div class="mt-1">
+        <h4 class="justify-center text-white text-center">{{ nametrip }}</h4>
       </div>
-      <div>
+      <div class="text-center">
         <i class="fa-solid fa-map text-white"></i>
         <label class="date text-white p-2">{{ numberplace }} places</label>
       </div>
@@ -23,7 +24,6 @@
           class="bg-[#C1CB9C] text-white text-sm  tracking-wider block w-3/4 rounded-full"
         >
           <RouterLink :to="{name: 'Detail', params: {alldata: JSON.stringify(this.alldataplace)}}">Read More</RouterLink>
-          <h4>{{ typeof(this.alldataplace) }}</h4>
         </button>
       </div>
     </div>
