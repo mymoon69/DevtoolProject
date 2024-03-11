@@ -50,7 +50,8 @@ const router = createRouter({
             component : AllTourCalendar
         },
         {
-            path : "/DetailEachPagearch",
+            path : "/DetailEachPagearch/:alldata",
+            name: 'Detail',
             component : DetailEachPage
         },
        

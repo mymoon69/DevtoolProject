@@ -111,7 +111,7 @@
             type="text"
             class="border-2 border-gray-100 focus:outline-none bg-none block w-full py-2 px-4 rounded-lg focus:border-gray-700"
           >
-            <option v-for="(place, index) in places" :key="place.id" :value="index">{{ place.description }}</option>
+            <option v-for="(place, index) in places" :key="place.id" :value="index">{{ place.nameTrip }}</option>
           </select>
         </div>
         <div></div>
@@ -382,8 +382,9 @@ export default {
         console.log("place")
       try {
         
-        const response =  await axios.get('http://localhost:4000/places');
+        const response =  await axios.get('http://localhost:4000/listTrips');
         this.places = response.data; // Store the retrieved comments data in the 'comments' array
+        console.log(this.places)
         this.countplace = this.places.length
       } catch (error) {
         console.error('Error fetching comments:', error);

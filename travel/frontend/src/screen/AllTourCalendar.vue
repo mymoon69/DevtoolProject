@@ -79,10 +79,11 @@
             <DetailCard
             v-for="(place, index) in places"
             :key="place.id"
-              startdate=place.StartDate
-              enddate=place.EndDate
-              location="Home"
-              country="Thailands"
+              :startdate=place.StartDate
+              :enddate=place.EndDate
+              :nametrip=place.Tour.nameTrip
+              :numberplace=place.Tour.selectedTrips.length
+              :alldataplace=place
             />
           </div>
         </div>
@@ -92,6 +93,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import DetailCard from "../components/DetailtourCard.vue";
 
 export default {
@@ -319,7 +321,7 @@ export default {
         console.log("place")
       try {
         
-        const response =  await axios.get('http://localhost:4000/places');
+        const response =  await axios.get('http://localhost:4000/addtour');
         this.places = response.data; // Store the retrieved comments data in the 'comments' array
         this.countplace = this.places.length
       } catch (error) {

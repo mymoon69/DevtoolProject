@@ -2,24 +2,37 @@
   <div class="bg-[#3A4646] flex flex-row p-2 rounded-lg">
     <div class="basis-1/2">
       <img
-        class="w-full rounded-lg"
-        src="https://a.cdn-hotels.com/gdcs/production74/d462/9fe21145-585c-4e7f-9373-24ed559ec010.jpg"
+        class="w-full rounded-lg h-36"
+        src="https://cdn.discordapp.com/attachments/914474333273989140/1216580080642429031/Scene.._1_1.png?ex=6600e77e&is=65ee727e&hm=4f058d5f479577a204a6f320be6ea031d245ff044ebaf86d84a74de65273c94d&"
       />
     </div>
     <div class="basis-1/2 justify-center pl-3">
-      <div>
-        <h4 class="justify-center text-white">{{ startdate }} - {{ enddate }}</h4>
-        <h4 class="justify-center text-white">{{ location }}</h4>
+      <div class="border border-[#C1CB9C] rounded-full p-2">
+        <h4 class="justify-center text-white text-xs">{{ startdate }} - {{ enddate }}</h4>
       </div>
       <div>
-        <i class="fa-solid fa-location-dot text-white"></i>
-        <label class="date text-white pl-2">{{ country }}</label>
+        <h4 class="justify-center text-white">{{ nametrip }}</h4>
+      </div>
+      <div>
+        <i class="fa-solid fa-map text-white"></i>
+        <label class="date text-white p-2">{{ numberplace }} places</label>
+      </div>
+      <div class="pt-3 text-white text-center justify-center items-center flex">
+        <button
+          type="submit"
+          class="bg-[#C1CB9C] text-white text-sm  tracking-wider block w-3/4 rounded-full"
+        >
+          <RouterLink :to="{name: 'Detail', params: {alldata: JSON.stringify(this.alldataplace)}}">Read More</RouterLink>
+          <h4>{{ typeof(this.alldataplace) }}</h4>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
     props: {
       startdate: {
@@ -30,14 +43,19 @@ export default {
         type: String,
         default: ""
       },
-      location: {
+      nametrip: {
         type: String,
         default: ""
       },
-      country: {
-        type: String,
+      numberplace: {
+        type: Number,
         default: ""
+      },
+      alldataplace: {
+        type: Object,
+        default: () => ({})
       }
     }
   };
+
 </script>

@@ -14,26 +14,39 @@
           />
         </div>
         <h4 class="justify-center text-white">Jan 24 - Jan 27</h4>
-        <h4 class="justify-center text-white">Mardi Himal Hiking</h4>
+        <h4 class="justify-center text-white">{{ this.$route.params.alldata}}</h4>
         <div>
           <i class="fa-solid fa-location-dot text-white"></i>
           <label class="date text-white">  Nepal</label>
         </div>
         <h4 class="justify-center text-white">Have to renew the passport before</h4>
       </div>
-      <div class="py-6 text-white">
+      <!-- <div class="py-6 text-white">
         <button
           type="submit"
           class="bg-[#3A4646] text-white tracking-wider block w-full p-2 rounded-full focus:border-gray-700"
         >
           Edit
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+
+export default {
+    data() {
+      return {
+        detail: this.$route.params.alldata
+      }
+    },
+    created() {
+      this.detail = this.$route.params.alldata
+      alert(this.$route.params.alldata.StartDate)
+    }
+  };
+</script>
 
 <style>
 
