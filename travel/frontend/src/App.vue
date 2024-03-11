@@ -2,7 +2,6 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/WelcomeItem.vue";
 import CommentPage from "../src/screen/CommentPage.vue";
-import AllTourCalendar from "../src/screen/AddTour.vue"
 </script>
 
 <template>
@@ -19,12 +18,6 @@ import AllTourCalendar from "../src/screen/AddTour.vue"
       <HelloWorld msg="You did it!" />
     </div>
   </header> -->
-
-  <!-- <main>
-    <CommentPage />
-  </main> -->
-
-  <router-view />
 </template>
 
 <style scoped>
