@@ -14,7 +14,7 @@
               placeholder="Email"
               v-model="email"
             />
-     
+
           </div>
           <div class="py-2 text-left">
             <input
@@ -53,10 +53,10 @@ import axios from 'axios';
     };
   },
 
-  
+
   methods: {
-  
-  
+
+
 
     login(){
 
@@ -64,7 +64,7 @@ import axios from 'axios';
             email : this.email,
             password : this.password
         }
-      
+
         axios.post('http://localhost:4000/login', data)
         .then(response => {
           this.responseData = response.data;
@@ -75,9 +75,11 @@ import axios from 'axios';
                 title: 'Login Success',
                 icon: 'success'
             });
-          console.log(this.responseData)
 
-          
+          console.log(this.responseData)
+           this.$router.push("/");
+
+
         })
         .catch(error => {
           console.error('Error fetching data:', error);
