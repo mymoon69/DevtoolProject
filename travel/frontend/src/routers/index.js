@@ -1,6 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
-
 import registerView from '@/screen/RegisterView.vue'
 import loginView from '@/screen/LoginView.vue'
 import CommentPage from '@/screen/CommentPage.vue'
