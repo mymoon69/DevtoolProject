@@ -2,9 +2,6 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/WelcomeItem.vue";
 import CommentPage from "../src/screen/CommentPage.vue";
-import AllTourCalendar from "../src/screen/AllTourCalendar.vue"
-import listYourTrips from "../src/screen/listYourTrips.vue";
-import listConfirm from "../src/screen/listConfirm.vue";
 </script>
 
 <template>
@@ -21,10 +18,6 @@ import listConfirm from "../src/screen/listConfirm.vue";
       <HelloWorld msg="You did it!" />
     </div>
   </header> -->
-
-  <main>
-    <listConfirm />
-  </main>
 </template>
 
 <style scoped>
