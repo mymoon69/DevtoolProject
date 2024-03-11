@@ -1,4 +1,3 @@
-@ -0,0 +1,276 @@
 <template>
   <p class="title has-text-centered has-text-danger mt-4">Money Manage</p>
   <div class="column">
@@ -136,13 +135,13 @@
       <div id="total" class="content-tab" style="display: none">
         <div class="column is-8" v-for="item in result">
           <div
-            class="max-w-md mx-auto bg-green-100 rounded-xl shadow-md overflow-hidden md:max-w-2xl my-3"
+            class="max-w-md mx-auto bg-green-100 rounded-xl shadow-md overflow-hidden md:max-w-2xl "
           >
             <div class="md:flex">
               <div class="p-8">
                 <p
                   href="#"
-                  class="block mt-1 text-xl leading-tight font-medium text-black"
+                  class="block text-xl leading-tight font-medium text-black"
                 >
                   {{ item.member }}
                 </p>
@@ -310,14 +309,15 @@ export default {
         .post("http://localhost:4000/bills", { bills: this.listMenu })
         .then((response) => {
           console.log("POST request successful:", response.data);
-          this.newListMenu = "";
-          this.price = 0;
-          this.selectedPeople = [];
           this.fetchBills();
         })
         .catch((error) => {
           console.error("Error making POST request:", error);
         });
+      this.newListMenu = "";
+      this.price = 0;
+      this.selectedPeople = [];
+      this.listMenu = [];
     },
     deletePerson(index) {
       console.log("delete menber");
