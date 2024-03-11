@@ -1,7 +1,7 @@
 <template>
   <header class="bg-gray-800 text-white py-5 px-5">
     <div class="container mx-auto flex justify-between items-center">
-      <img src="../assets/Group 1.svg" alt="">
+      <img src="../assets/Group 1.svg" alt="" @click="toggleCheckBill">
       <h1 class="text-2xl font-semibold text-gray-500">Search</h1>
       <nav>
         <ul class="flex space-x-4" v-if="user == null">
@@ -20,6 +20,7 @@
 <script>
 
 export default {
+  props: ['toggleCheckBill'],
   data() {
     return {
       user: ""
@@ -34,6 +35,9 @@ export default {
     logout(){
       localStorage.removeItem('token')
       this.user = null
+    },
+    showBill(){
+      this.$emit('showBill');
     }
    }
 

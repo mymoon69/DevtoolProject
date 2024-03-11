@@ -64,7 +64,7 @@ export default {
 
   methods: {
     register() {
-      if (this.password === this.confirmPassword) {
+      if (this.password === this.confirmPassword && this.password != '' && this.confirmPassword != '' && this.email != '') {
         const data = {
           email: this.email,
           password: this.password,
