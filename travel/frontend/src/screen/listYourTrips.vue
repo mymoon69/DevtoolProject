@@ -28,6 +28,7 @@
           <input
             type="text"
             placeholder="Search"
+            v-model="searchTerm"
             class="w-full border-[#DFDFDF] rounded-full pl-10 pr-4 py-2 focus:border-blue-500"
           />
         </div>
@@ -80,13 +81,20 @@
     </div>
 
     <div class="flex justify-end">
-      <button
-        type="submit"
-        @click="addTrip()"
-        class="flex justify-center mt-3 w-full px-6 py-2 text-[#4C3FB6] border border-[#4C3FB6] rounded-full md:mt-0 md:w-auto md:mx-2"
+      <router-link
+        :to="{
+          path: '/listConfirm/:tripId',
+          component: listConfirm,
+        }"
       >
+        <button
+          type="submit"
+          @click="addTrip()"
+          class="flex justify-center mt-3 w-full px-6 py-2 text-[#4C3FB6] border border-[#4C3FB6] rounded-full md:mt-0 md:w-auto md:mx-2"
+        >
           สร้างทริป
-      </button>
+        </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -104,9 +112,6 @@ export default {
     };
   },
   methods: {
-    // allPlace() {
-    // this.places = axios.get("http://localhost:4000/places");
-    // },
     async performSearch() {
       try {
         const response = await axios.get("http://localhost:4000/places");
@@ -116,6 +121,8 @@ export default {
 
         // Filter trips based on the search term
         this.searchResults = allTrips.filter((trip) => {
+          console.log("keysearch", this.searchTerm);
+          console.log("key", trip);
           return (
             trip.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
             trip.province.toLowerCase().includes(this.searchTerm.toLowerCase())
@@ -147,19 +154,17 @@ export default {
         nameTrip: this.nameTrip,
       };
 
-      axios
-        .post("http://localhost:4000/trip", trip)
-        .then((res) => {
-          this.err = "";
-          console.log("Response: ", res);
+      axios.post("http://localhost:4000/trip", trip).then((res) => {
+        console.log("Response: ", res);
+        console.log("Response: ", res.data);
+        const tripId = res.data ? res.data.id : null;
+        if (tripId) {
           alert("Trip added successfully!");
-          // this.$router.push({ path: "/login" });
-        })
-        .catch((err) => {
-          this.err = err.response.data.details.message;
-          console.error(err);
-          alert(err.response.data.details.message);
-        });
+          this.$router.push({ path: `/listConfirm/${tripId}`, params: { tripId } });
+        } else {
+          alert("Unable to get trip ID from the response.");
+        }
+      });
     },
   },
 };

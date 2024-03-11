@@ -61,8 +61,8 @@ router.get("/places", async (req, res) => {
     const db = admin.firestore();
     // const {trip} = req.body;
     try {
-        await db.collection('listTrips').add(req.body);
-        res.send({ msg: "trip added successfully" });
+      const docRef = await db.collection('listTrips').add(req.body);
+        res.send({ msg: "trip added successfully" , id: docRef.id});
       } catch (error) {
         console.error('Error adding trip:', error);
         res.status(500).send({ error: 'Internal Server Error' });

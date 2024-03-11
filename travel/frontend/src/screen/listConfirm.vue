@@ -1,4 +1,4 @@
- <template>
+<template>
   <div>
     <header>
       <i class="fa fa-bars"></i>
@@ -34,7 +34,26 @@
             </h1>
           </div>
         </div>
+
+        
+
       </div>
+      <div class="flex justify-end">
+      <router-link
+        :to="{
+          path: '/AllTourCalendar',
+          component: AllTourCalendar,
+        }"
+      >
+        <button
+          type="submit"
+          @click="addTrip()"
+          class="flex justify-center mt-3 w-full px-6 py-2 text-[#4C3FB6] border border-[#4C3FB6] rounded-full md:mt-0 md:w-auto md:mx-2"
+        >
+          ไปหน้ามะปราง
+        </button>
+      </router-link>
+    </div>
     </div>
   </div>
 </template>
@@ -43,6 +62,7 @@
 import axios from "axios";
 
 export default {
+  props: ['myProp'],
   data() {
     return {
       places: [],
@@ -50,6 +70,7 @@ export default {
     };
   },
   created() {
+    console.log("po",this.myProp);
       this.fetchplace();
   },
   methods: {
@@ -57,11 +78,12 @@ export default {
         console.log("place")
         console.log("plance3", this.places)
       try { 
-        const response =  await axios.get('http://localhost:4000/place/KMS1g85dyGjM86BESvsU');
+        console.log(this.$route.params)
+        const response =  await axios.get(`http://localhost:4000/place/${this.$route.params.tripId}`);
+        
         this.places = response.data.selectedTrips
         this.nameplace = response.data.nameTrip
         
-        console.log("plance3", response.data.selectedTrips)
       } catch (error) {
         console.error('Error fetching comments:', error);
       }
